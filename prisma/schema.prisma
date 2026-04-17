@@ -3,18 +3,17 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Session {
-  id        String    @id
-  type      String
-  level     String
-  role      String
-  status    String    @default("active")
-  messages  String    @default("[]")
-  result    String    @default("{}")
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  id         String   @id @default(cuid())
+  type       String
+  level      String
+  role       String
+  messages   Json     @default("[]")
+  evaluation Json?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
