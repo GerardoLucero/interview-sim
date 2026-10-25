@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
+import type { Prisma } from '@prisma/client'
 import {
   generateInterviewerResponse,
   evaluateInterview,
@@ -36,7 +37,7 @@ export async function POST(req: NextRequest) {
     const session = await db.session.findUnique({ where: { id: sessionId } })
     if (!session) return NextResponse.json({ error: 'Session not found' }, { status: 404 })
 
-    const messages = session.messages as Message[]
+    const messages = session.messages as unknown as Message[]
     const candidateMessage: Message = { role: 'candidate', content, timestamp: new Date().toISOString() }
 
     const interviewSession: InterviewSession = {
@@ -51,7 +52,7 @@ export async function POST(req: NextRequest) {
 
     await db.session.update({
       where: { id: sessionId },
-      data: { messages: [...interviewSession.messages, interviewerMessage] },
+      data: { messages: [...interviewSession.messages, interviewerMessage] as unknown as Prisma.InputJsonValue },
     })
 
     return NextResponse.json({ message: response })
@@ -67,11 +68,11 @@ export async function POST(req: NextRequest) {
       type: session.type as InterviewType,
       level: session.level as ExperienceLevel,
       role: session.role,
-      messages: session.messages as Message[],
+      messages: session.messages as unknown as Message[],
     }
 
     const evaluation = await evaluateInterview(interviewSession)
-    await db.session.update({ where: { id: sessionId }, data: { evaluation } })
+    await db.session.update({ where: { id: sessionId }, data: { evaluation: evaluation as unknown as Prisma.InputJsonValue } })
 
     return NextResponse.json({ evaluation })
   }
