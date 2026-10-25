@@ -105,7 +105,7 @@ ${history}
 Candidate's latest answer: ${candidateAnswer}
 
 Respond as the interviewer. Ask a follow-up, probe deeper, or transition to the next topic.`,
-    maxOutputTokens: 300,
+    maxTokens: 300,
   })
 
   return text
@@ -143,7 +143,7 @@ Return JSON only:
   "hireRecommendation": "strong_yes | yes | lean_no | no",
   "nextSteps": "One concrete thing to study or practice to improve for the next interview"
 }`,
-    maxOutputTokens: 800,
+    maxTokens: 800,
   })
 
   try {

@@ -2,9 +2,8 @@
 
 Practice technical interviews with an AI that does not go easy on you.
 
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-FF5E5B?style=flat&logo=ko-fi&logoColor=white)](https://ko-fi.com/gerardolucero)
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/lucerorios0)
-[![GitHub Stars](https://img.shields.io/github/stars/GerardoLucero/interview-sim?style=social)](https://github.com/GerardoLucero/interview-sim)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![CI](https://github.com/GerardoLucero/interview-sim/actions/workflows/ci.yml/badge.svg)](https://github.com/GerardoLucero/interview-sim/actions/workflows/ci.yml)
 
 Interview Sim runs realistic mock interviews for software engineers. Choose the type of interview — system design, behavioral, coding, or architecture — select your target level, and have a full conversation with an AI interviewer who asks follow-up questions, pushes back on vague answers, and gives you detailed feedback at the end.
 
@@ -179,6 +178,13 @@ Set `ANTHROPIC_API_KEY` and `DATABASE_URL` in your Vercel project settings. Use 
 
 ---
 
+## Support
+
+Open source, maintained in my spare time. If it was useful and you want to say thanks:
+
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-FF5E5B?style=flat&logo=ko-fi&logoColor=white)](https://ko-fi.com/gerardolucero)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/lucerorios0)
+
 ## License
 
-MIT
+MIT, see [LICENSE](LICENSE).
